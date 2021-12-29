@@ -66,8 +66,8 @@
 	};
 </script>
 
-<section class="container mx-auto px-8 py-6">
-	<div class="flex lg:flex-row flex-col space-y-4 space-x-4">
+<section class="container mx-auto px-4 lg:px-8 py-6">
+	<div class="flex lg:flex-row flex-col  space-y-4 lg:space-x-4">
 		<div class="flex flex-col h-5/6 lg:w-1/2 p-4  shadow-md">
 			<h2 class="text-4xl ">Add Note</h2>
 			<form class="py-3 w-full" action="">
@@ -102,11 +102,11 @@
 					</div>
 				</div>
 				<div class="relative mb-4">
-					<label for="message" class="leading-7 text-sm text-gray-600">Message</label>
+					<label for="content" class="leading-7 text-sm text-gray-600">Content</label>
 					<textarea
 						bind:value={data.content}
-						id="message"
-						name="message"
+						id="content"
+						name="content"
 						class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
 					/>
 				</div>
@@ -126,9 +126,9 @@
 			</form>
 		</div>
 
-		<div class=" p-4 lg:w-1/2">
+		<div class="w-full p-4 lg:w-1/2">
 			{#each notes as note}
-				<div class="flex flex-col shadow-md p-4">
+				<div class="flex flex-col shadow-md w-full p-4">
 					<h2 class="py-3 text-4xl text-md border-b-2">{note.category}</h2>
 					<div class="py-2">
 						<h2 class="text-2xl">{note.title}</h2>
