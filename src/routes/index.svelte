@@ -34,7 +34,10 @@
 			category: '',
 			content: ''
 		};
-		
+	};
+	let deleteNote = (id) => {
+		console.log(id);
+		notes = notes.filter((note) => note.id !== id);
 	};
 </script>
 
@@ -104,7 +107,8 @@
 							>Edit</button
 						>
 						<button
-							class="inline-flex text-white bg-red-500 border-0 py-1 px-4 focus:outline-none hover:bg-indigo-600 rounded"
+							on:click={deleteNote(note.id)}
+							class="inline-flex text-white bg-red-500 border-0 py-1 px-4 focus:outline-none hover:bg-red-600 rounded"
 							>Delete</button
 						>
 					</div>
