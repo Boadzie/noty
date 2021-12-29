@@ -39,6 +39,31 @@
 		console.log(id);
 		notes = notes.filter((note) => note.id !== id);
 	};
+	let isEdit = false;
+	let editNote = (note) => {
+		isEdit = true;
+		data = note;
+	};
+
+	let updateNote = () => {
+		isEdit = !isEdit;
+		let noteDB = {
+			title: data.title,
+			category: data.category,
+			content: data.content,
+			id: data.id
+		};
+		let objIndex = notes.findIndex((obj) => obj.id == noteDB.id);
+		console.log('Before update: ', notes[objIndex]);
+		notes[objIndex] = noteDB;
+
+		data = {
+			id: null,
+			title: '',
+			category: '',
+			content: ''
+		};
+	};
 </script>
 
 <section class="container mx-auto px-8 py-6">
@@ -85,11 +110,19 @@
 						class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
 					/>
 				</div>
-				<button
-					on:click|preventDefault={addNote}
-					class="inline-flex text-white bg-green-500 border-0 py-1 px-4 focus:outline-none hover:bg-green-600 rounded"
-					>Submit</button
-				>
+				{#if isEdit === false}
+					<button
+						on:click|preventDefault={addNote}
+						class="inline-flex text-white bg-green-500 border-0 py-1 px-4 focus:outline-none hover:bg-green-600 rounded"
+						>Add Note</button
+					>
+				{:else}
+					<button
+						on:click|preventDefault={updateNote}
+						class="inline-flex text-white bg-green-500 border-0 py-1 px-4 focus:outline-none hover:bg-green-600 rounded"
+						>Update
+					</button>
+				{/if}
 			</form>
 		</div>
 
@@ -103,6 +136,7 @@
 					</div>
 					<div class="py-2  flex space-x-2">
 						<button
+							on:click={editNote(note)}
 							class="inline-flex text-white bg-yellow-500 border-0 py-1 px-4 focus:outline-none hover:bg-yellow-600 rounded"
 							>Edit</button
 						>
