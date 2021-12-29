@@ -67,8 +67,8 @@
 </script>
 
 <section class="container mx-auto px-4 lg:px-8 py-6">
-	<div class="flex lg:flex-row flex-col  space-y-4 lg:space-x-4">
-		<div class="flex flex-col h-5/6 lg:w-1/2 p-4  shadow-md">
+	<div class="flex lg:flex-row space-y-4 justify-center items-center flex-col lg:space-x-4">
+		<div class="flex flex-col h-5/6 lg:w-1/2 bg-white p-4 border-2  shadow-md">
 			<h2 class="text-4xl ">Add Note</h2>
 			<form class="py-3 w-full" action="">
 				<div class="relative mb-4">
@@ -120,9 +120,9 @@
 			</form>
 		</div>
 
-		<div class="w-full p-4 lg:w-1/2">
+		<div class="max-w-full  lg:w-1/2">
 			{#each notes as note}
-				<div class="flex flex-col shadow-md w-full p-4">
+				<div class="flex flex-col mb-2 bg-white border-2 shadow-md w-full p-4">
 					<h2 class="py-3 text-4xl text-md border-b-2">{note.category}</h2>
 					<div class="py-2">
 						<h2 class="text-2xl">{note.title}</h2>
